@@ -1,0 +1,20 @@
+[
+  { "slug": "sales_crm", "file": "sales_crm.json", "templateName": "Sales CRM", "category": "sales-crm" },
+  { "slug": "marketing_campaign_tracker", "file": "marketing_campaign_tracker.json", "templateName": "Marketing Campaign Tracker", "category": "marketing" },
+  { "slug": "project_management_hub", "file": "project_management_hub.json", "templateName": "Project Management Hub", "category": "project-management" },
+  { "slug": "content_calendar", "file": "content_calendar.json", "templateName": "Content Calendar", "category": "content-planning" },
+  { "slug": "hr_onboarding", "file": "hr_onboarding.json", "templateName": "HR Onboarding", "category": "hr-recruiting" },
+  { "slug": "event_planner", "file": "event_planner.json", "templateName": "Event Planner", "category": "event-planning" },
+  { "slug": "product_catalog", "file": "product_catalog.json", "templateName": "Product Catalog", "category": "inventory" },
+  { "slug": "inventory_management", "file": "inventory_management.json", "templateName": "Inventory Management", "category": "inventory" },
+  { "slug": "fundraising_crm", "file": "fundraising_crm.json", "templateName": "Fundraising CRM", "category": "sales-crm" },
+  { "slug": "education_course_tracker", "file": "education_course_tracker.json", "templateName": "Education Course Tracker", "category": "product-management" },
+  { "slug": "bug_tracker", "file": "bug_tracker.json", "templateName": "Bug Tracker", "category": "project-management" },
+  { "slug": "okr_dashboard", "file": "okr_dashboard.json", "templateName": "OKR Dashboard", "category": "product-management" },
+  { "slug": "personal_crm", "file": "personal_crm.json", "templateName": "Personal CRM", "category": "sales-crm" },
+  { "slug": "product_roadmap", "file": "product_roadmap.json", "templateName": "Product Roadmap", "category": "product-management" },
+  { "slug": "customer_support_tickets", "file": "customer_support_tickets.json", "templateName": "Customer Support Tickets", "category": "project-management" },
+  { "slug": "real_estate_listings", "file": "real_estate_listings.json", "templateName": "Real Estate Listings", "category": "inventory" },
+  { "slug": "content_production_pipeline", "file": "content_production_pipeline.json", "templateName": "Content Production Pipeline", "category": "content-planning" },
+  { "slug": "financial_budget_tracker", "file": "financial_budget_tracker.json", "templateName": "Financial Budget Tracker", "category": "product-management" }
+]

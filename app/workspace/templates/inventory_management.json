@@ -1,0 +1,28 @@
+{
+  "templateName": "Inventory Management",
+  "category": "inventory",
+  "description": "Track stock levels, reorder points, and purchase orders.",
+  "tables": [
+    {
+      "name": "Inventory",
+      "fields": [
+        { "name": "Item", "type": "text" },
+        { "name": "SKU", "type": "text" },
+        { "name": "Quantity", "type": "number" },
+        { "name": "Reorder Point", "type": "number" },
+        { "name": "Location", "type": "text" }
+      ],
+      "views": ["grid"]
+    },
+    {
+      "name": "Purchase Orders",
+      "fields": [
+        { "name": "PO Number", "type": "text" },
+        { "name": "Vendor", "type": "text" },
+        { "name": "Order Date", "type": "date" },
+        { "name": "Amount", "type": "currency" }
+      ],
+      "views": ["grid", "calendar"]
+    }
+  ]
+}

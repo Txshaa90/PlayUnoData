@@ -1,0 +1,27 @@
+{
+  "templateName": "Project Management Hub",
+  "category": "project-management",
+  "description": "Organize tasks, owners, priorities, and milestones with timelines.",
+  "tables": [
+    {
+      "name": "Tasks",
+      "fields": [
+        { "name": "Task", "type": "text" },
+        { "name": "Assignee", "type": "text" },
+        { "name": "Priority", "type": "select", "options": ["High", "Medium", "Low"] },
+        { "name": "Status", "type": "select", "options": ["Backlog", "In Progress", "Blocked", "Done"] },
+        { "name": "Due Date", "type": "date" }
+      ],
+      "views": ["grid", "kanban", "calendar"]
+    },
+    {
+      "name": "Milestones",
+      "fields": [
+        { "name": "Milestone", "type": "text" },
+        { "name": "Target Date", "type": "date" },
+        { "name": "Owner", "type": "text" }
+      ],
+      "views": ["grid", "calendar"]
+    }
+  ]
+}

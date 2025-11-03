@@ -1,0 +1,352 @@
+/* Enhanced Button Animations */
+.btn-primary {
+  @apply bg-primary hover:bg-primary-700 text-white font-medium rounded-component transition-all duration-200;
+  transform: translateY(0);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(22, 163, 74, 0.2);
+}
+
+.btn-secondary {
+  @apply bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 font-medium rounded-component transition-all duration-200;
+  transform: translateY(0);
+}
+
+.btn-secondary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Floating Animation for Background Elements */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+  66% {
+    transform: translateY(5px) rotate(-1deg);
+  }
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+.float-animation-delayed {
+  animation: float 6s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+.float-animation-slow {
+  animation: float 8s ease-in-out infinite;
+  animation-delay: 4s;
+}
+
+/* Pulse Animation for Interactive Elements */
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.pulse-subtle {
+  animation: pulse-subtle 2s ease-in-out infinite;
+}
+
+/* Shimmer Effect for Loading States */
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, #f0f0f0 0px, #e0e0e0 40px, #f0f0f0 80px);
+  background-size: 200px;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Enhanced Dropdown Animations */
+.dropdown-enter {
+  opacity: 0;
+  transform: scale(0.95) translateY(-5px);
+}
+
+.dropdown-enter-active {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  transition: all 200ms ease-out;
+}
+
+.dropdown-exit {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+.dropdown-exit-active {
+  opacity: 0;
+  transform: scale(0.95) translateY(-5px);
+  transition: all 150ms ease-in;
+}
+
+/* Card Hover Effects */
+.card-hover {
+  transition: all 0.2s ease-out;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+/* Workspace Card Specific Animations */
+.workspace-card {
+  transition: all 0.2s ease-out;
+  transform: translateY(0);
+}
+
+.workspace-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.workspace-card:hover .workspace-icon {
+  transform: scale(1.05);
+}
+
+.workspace-icon {
+  transition: transform 0.2s ease-out;
+}
+
+/* Template Card Animations */
+.template-card {
+  transition: all 0.2s ease-out;
+  transform: translateY(0);
+}
+
+.template-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.1), 0 10px 15px -5px rgba(0, 0, 0, 0.05);
+}
+
+/* Launch Button Animations */
+.launch-button {
+  transition: all 0.2s ease-out;
+  transform: scale(1);
+}
+
+.launch-button:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.15);
+}
+
+.launch-button:active {
+  transform: scale(0.98);
+}
+
+/* Premium Launch Button */
+.launch-button-premium {
+  background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.launch-button-premium::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.launch-button-premium:hover::before {
+  left: 100%;
+}
+
+/* Admin Launch Button */
+.launch-button-admin {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  box-shadow: 0 4px 15px -3px rgba(139, 92, 246, 0.4);
+}
+
+.launch-button-admin:hover {
+  box-shadow: 0 8px 25px -5px rgba(139, 92, 246, 0.6);
+}
+
+/* Workspace Launch Button */
+.workspace-launch-button {
+  transition: all 0.2s ease-out;
+  transform: scale(1);
+}
+
+.workspace-launch-button:hover {
+  transform: scale(1.05) translateY(-1px);
+  box-shadow: 0 8px 25px -5px rgba(34, 197, 94, 0.4);
+}
+
+.workspace-launch-button:active {
+  transform: scale(0.95);
+}
+
+/* Launch Dropdown Animation */
+.launch-dropdown {
+  transform-origin: top right;
+}
+
+/* Launch Option Hover */
+.launch-option:hover {
+  background: linear-gradient(90deg, #f9fafb 0%, #f3f4f6 100%);
+}
+
+/* Template Sheet Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.3s ease-out;
+}
+
+/* Sheet Row Hover */
+.sheet-row {
+  transition: background-color 0.15s ease-out;
+}
+
+.sheet-row:hover {
+  background-color: #F9FAFB;
+}
+
+/* Active Cell Glow */
+.cell-active {
+  border: 2px solid #16A34A;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
+  border-radius: 4px;
+}
+
+/* Progress Bar Animation */
+.progress-bar {
+  transition: width 0.5s ease-out;
+}
+
+/* Cell Edit Mode */
+.cell-editing {
+  background: #F0FDF4;
+  border: 2px solid #22C55E;
+  border-radius: 6px;
+}
+
+/* Template Theme Gradients */
+.theme-green {
+  background: linear-gradient(135deg, #D1FAE5 0%, #BBF7D0 100%);
+}
+
+.theme-orange {
+  background: linear-gradient(135deg, #FFEFD5 0%, #FFDAB9 100%);
+}
+
+.theme-purple {
+  background: linear-gradient(135deg, #EDE9FE 0%, #DDD6FE 100%);
+}
+
+.theme-pink {
+  background: linear-gradient(135deg, #FCE7F3 0%, #FBCFE8 100%);
+}
+
+.theme-blue {
+  background: linear-gradient(135deg, #DBEAFE 0%, #BFDBFE 100%);
+}
+
+/* Sheet Header Sticky */
+.sheet-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #F9FAFB;
+  border-bottom: 2px solid #E5E7EB;
+}
+
+/* Add Record Button Pulse */
+@keyframes pulse-add {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 8px rgba(34, 197, 94, 0);
+  }
+}
+
+.add-record-pulse {
+  animation: pulse-add 2s infinite;
+}
+
+/* Sidebar Animations */
+.sidebar-item {
+  transition: all 0.15s ease-out;
+}
+
+.sidebar-item:hover {
+  transform: translateX(2px);
+}
+
+/* Loading Spinner */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin-slow {
+  animation: spin-slow 2s linear infinite;
+}
+
+/* Success Checkmark Animation */
+@keyframes checkmark {
+  0% {
+    stroke-dashoffset: 100;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.checkmark {
+  stroke-dasharray: 100;
+  animation: checkmark 0.5s ease-out forwards;
+}
+
+/* Stagger Animation Delays */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }

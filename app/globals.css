@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import '../styles/animations.css';
+
+@layer base {
+  body {
+    @apply bg-background text-gray-900 font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary hover:bg-primary-700 text-white px-4 py-2 rounded-component font-medium transition-colors duration-200 flex items-center gap-2;
+  }
+  
+  .btn-secondary {
+    @apply bg-white hover:bg-gray-50 text-gray-700 px-4 py-2 rounded-component font-medium border border-gray-200 transition-colors duration-200 flex items-center gap-2;
+  }
+  
+  .btn-icon {
+    @apply p-2 rounded-component hover:bg-gray-100 transition-colors duration-200 flex items-center justify-center;
+  }
+  
+  .tab-active {
+    @apply bg-primary text-white;
+  }
+  
+  .tab-inactive {
+    @apply bg-white text-gray-600 hover:bg-gray-50;
+  }
+  
+  .grid-cell {
+    @apply px-3 py-2 border-r border-gray-200 last:border-r-0 text-sm;
+  }
+  
+  .grid-header {
+    @apply px-3 py-3 border-r border-gray-200 last:border-r-0 text-sm font-medium text-gray-700 bg-gray-50;
+  }
+
+  /* View Bar Specific Styles */
+  .view-name {
+    @apply flex items-center gap-2 px-3 py-1 bg-white rounded-component cursor-pointer transition-colors duration-200;
+  }
+  
+  .view-name:hover {
+    @apply bg-gray-50;
+  }
+  
+  .toolbar-button {
+    @apply flex items-center justify-center p-2 rounded-component transition-all duration-200;
+    @apply text-primary hover:bg-accent hover:text-primary-700;
+  }
+  
+  .toolbar-button:hover {
+    transform: scale(1.05);
+  }
+  
+  .toolbar-button.active {
+    @apply bg-accent border border-primary text-primary-700;
+  }
+
+  /* Animation utilities */
+  .animate-in {
+    animation-fill-mode: both;
+  }
+  
+  .fade-in {
+    animation: fadeIn 0.2s ease-out;
+  }
+  
+  .slide-in-from-top-2 {
+    animation: slideInFromTop 0.2s ease-out;
+  }
+  
+  .slide-in-from-right {
+    animation: slideInFromRight 0.2s ease-out;
+  }
+
+  /* Scrollbar utilities */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

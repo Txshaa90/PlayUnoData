@@ -1,0 +1,27 @@
+{
+  "templateName": "HR Onboarding",
+  "category": "hr-recruiting",
+  "description": "Track candidates and onboarding tasks across teams.",
+  "tables": [
+    {
+      "name": "Candidates",
+      "fields": [
+        { "name": "Candidate Name", "type": "text" },
+        { "name": "Email", "type": "email" },
+        { "name": "Role", "type": "text" },
+        { "name": "Stage", "type": "select", "options": ["Applied", "Interview", "Offer", "Hired", "Rejected"] }
+      ],
+      "views": ["grid", "kanban"]
+    },
+    {
+      "name": "Onboarding Tasks",
+      "fields": [
+        { "name": "Task", "type": "text" },
+        { "name": "Assignee", "type": "text" },
+        { "name": "Due Date", "type": "date" },
+        { "name": "Status", "type": "select", "options": ["Not Started", "In Progress", "Done"] }
+      ],
+      "views": ["grid", "calendar"]
+    }
+  ]
+}

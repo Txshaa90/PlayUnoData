@@ -1,0 +1,27 @@
+{
+  "templateName": "Customer Support Tickets",
+  "category": "project-management",
+  "description": "Track support tickets with priorities, agents, and SLAs.",
+  "tables": [
+    {
+      "name": "Tickets",
+      "fields": [
+        { "name": "Subject", "type": "text" },
+        { "name": "Customer", "type": "text" },
+        { "name": "Priority", "type": "select", "options": ["Urgent", "High", "Medium", "Low"] },
+        { "name": "Status", "type": "select", "options": ["New", "Open", "Pending", "Resolved", "Closed"] },
+        { "name": "Agent", "type": "text" },
+        { "name": "Due Date", "type": "date" }
+      ],
+      "views": ["grid", "kanban", "calendar"]
+    },
+    {
+      "name": "Customers",
+      "fields": [
+        { "name": "Name", "type": "text" },
+        { "name": "Email", "type": "email" }
+      ],
+      "views": ["grid"]
+    }
+  ]
+}

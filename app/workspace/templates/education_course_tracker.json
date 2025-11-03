@@ -1,0 +1,44 @@
+{
+  "templateName": "Education Course Tracker",
+  "category": "product-management",
+  "description": "Track courses, students, enrollments, and assignments.",
+  "tables": [
+    {
+      "name": "Courses",
+      "fields": [
+        { "name": "Course Name", "type": "text" },
+        { "name": "Instructor", "type": "text" },
+        { "name": "Start Date", "type": "date" },
+        { "name": "End Date", "type": "date" }
+      ],
+      "views": ["grid", "calendar"]
+    },
+    {
+      "name": "Students",
+      "fields": [
+        { "name": "Student Name", "type": "text" },
+        { "name": "Email", "type": "email" }
+      ],
+      "views": ["grid"]
+    },
+    {
+      "name": "Enrollments",
+      "fields": [
+        { "name": "Student", "type": "text" },
+        { "name": "Course", "type": "text" },
+        { "name": "Status", "type": "select", "options": ["Active", "Completed", "Dropped"] }
+      ],
+      "views": ["grid"]
+    },
+    {
+      "name": "Assignments",
+      "fields": [
+        { "name": "Assignment", "type": "text" },
+        { "name": "Course", "type": "text" },
+        { "name": "Due Date", "type": "date" },
+        { "name": "Max Points", "type": "number" }
+      ],
+      "views": ["grid", "calendar"]
+    }
+  ]
+}

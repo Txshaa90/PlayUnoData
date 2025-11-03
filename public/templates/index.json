@@ -1,0 +1,16 @@
+[
+  {
+    "id": "airtable-bug-tracker",
+    "name": "Bug Tracker",
+    "description": "Track bugs with status, priority, owner, due date, and progress",
+    "category": "project-management",
+    "preview": "/templates/templates-gallery.png"
+  },
+  {
+    "id": "airtable-event-planning",
+    "name": "Event Planning",
+    "description": "Vendors, tasks, timelines, and budget tracking",
+    "category": "event-planning",
+    "preview": "/templates/templates-gallery.png"
+  }
+]

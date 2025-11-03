@@ -1,0 +1,70 @@
+{
+  "id": "airtable-bug-tracker",
+  "name": "Bug Tracker",
+  "description": "Track bugs with status, priority, owner, due date, and progress",
+  "themeColor": {
+    "primary": "#0EA5E9",
+    "secondary": "#E0F2FE",
+    "gradient": "linear-gradient(135deg, #E0F2FE 0%, #BAE6FD 100%)"
+  },
+  "fields": [
+    { "id": "title", "name": "Bug Title", "type": "text", "width": 220, "required": true },
+    { "id": "status", "name": "Status", "type": "select", "width": 140, "options": ["Open", "In Progress", "Needs Review", "Closed"] },
+    { "id": "priority", "name": "Priority", "type": "select", "width": 110, "options": ["High", "Medium", "Low"] },
+    { "id": "owner", "name": "Owner", "type": "text", "width": 140 },
+    { "id": "dueDate", "name": "Due Date", "type": "date", "width": 130 },
+    { "id": "progress", "name": "Progress", "type": "progress", "width": 140 }
+  ],
+  "records": [
+    {
+      "id": "record-1",
+      "title": "Crash when saving project",
+      "status": "In Progress",
+      "priority": "High",
+      "owner": "Alex",
+      "dueDate": "2025-11-05",
+      "progress": 45
+    },
+    {
+      "id": "record-2",
+      "title": "UI glitch on dashboard",
+      "status": "Needs Review",
+      "priority": "Medium",
+      "owner": "Mia",
+      "dueDate": "2025-11-02",
+      "progress": 90
+    },
+    {
+      "id": "record-3",
+      "title": "Slow load on templates page",
+      "status": "Open",
+      "priority": "Low",
+      "owner": "Trisha",
+      "dueDate": "2025-11-10",
+      "progress": 0
+    }
+  ],
+  "prebuiltFeatures": {
+    "colorRules": [
+      {
+        "field": "status",
+        "conditions": [
+          { "value": "Closed", "color": "#DCFCE7", "textColor": "#166534" },
+          { "value": "Needs Review", "color": "#FEF3C7", "textColor": "#92400E" },
+          { "value": "Open", "color": "#F3F4F6", "textColor": "#374151" }
+        ]
+      },
+      {
+        "field": "priority",
+        "conditions": [
+          { "value": "High", "color": "#FEE2E2", "textColor": "#DC2626" },
+          { "value": "Medium", "color": "#FEF3C7", "textColor": "#92400E" },
+          { "value": "Low", "color": "#E0F2FE", "textColor": "#075985" }
+        ]
+      }
+    ],
+    "defaultGroupBy": "status",
+    "defaultSort": { "field": "dueDate", "direction": "asc" },
+    "defaultFilters": []
+  }
+}

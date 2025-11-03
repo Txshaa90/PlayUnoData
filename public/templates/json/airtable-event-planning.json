@@ -1,0 +1,58 @@
+{
+  "id": "airtable-event-planning",
+  "name": "Event Planning",
+  "description": "Vendors, tasks, timelines, and budget tracking",
+  "themeColor": {
+    "primary": "#F59E0B",
+    "secondary": "#FEF3C7",
+    "gradient": "linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%)"
+  },
+  "fields": [
+    { "id": "task", "name": "Task", "type": "text", "width": 220, "required": true },
+    { "id": "owner", "name": "Owner", "type": "text", "width": 140 },
+    { "id": "status", "name": "Status", "type": "select", "width": 130, "options": ["Not Started", "In Progress", "Waiting", "Done"] },
+    { "id": "dueDate", "name": "Due Date", "type": "date", "width": 130 },
+    { "id": "vendor", "name": "Vendor", "type": "text", "width": 160 },
+    { "id": "budget", "name": "Budget", "type": "currency", "width": 120 }
+  ],
+  "records": [
+    {
+      "id": "record-1",
+      "task": "Book venue",
+      "owner": "Trisha",
+      "status": "Done",
+      "dueDate": "2025-11-01",
+      "vendor": "Grand Hall",
+      "budget": 5000
+    },
+    {
+      "id": "record-2",
+      "task": "Catering menu",
+      "owner": "Alex",
+      "status": "In Progress",
+      "dueDate": "2025-11-05",
+      "vendor": "Delish Co.",
+      "budget": 3200
+    },
+    {
+      "id": "record-3",
+      "task": "Speaker outreach",
+      "owner": "Mia",
+      "status": "Waiting",
+      "dueDate": "2025-11-07",
+      "vendor": "—",
+      "budget": 0
+    }
+  ],
+  "prebuiltFeatures": {
+    "colorRules": [
+      { "field": "status", "conditions": [
+        { "value": "Done", "color": "#DCFCE7", "textColor": "#166534" },
+        { "value": "In Progress", "color": "#FEF3C7", "textColor": "#92400E" },
+        { "value": "Waiting", "color": "#E0F2FE", "textColor": "#075985" }
+      ]}
+    ],
+    "defaultGroupBy": "status",
+    "defaultSort": { "field": "dueDate", "direction": "asc" }
+  }
+}

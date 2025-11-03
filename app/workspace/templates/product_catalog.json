@@ -1,0 +1,27 @@
+{
+  "templateName": "Product Catalog",
+  "category": "inventory",
+  "description": "Maintain a catalog of products with categories and suppliers.",
+  "tables": [
+    {
+      "name": "Products",
+      "fields": [
+        { "name": "Product Name", "type": "text" },
+        { "name": "SKU", "type": "text" },
+        { "name": "Category", "type": "text" },
+        { "name": "Price", "type": "currency" },
+        { "name": "Active", "type": "checkbox" }
+      ],
+      "views": ["grid"]
+    },
+    {
+      "name": "Suppliers",
+      "fields": [
+        { "name": "Supplier Name", "type": "text" },
+        { "name": "Email", "type": "email" },
+        { "name": "Phone", "type": "text" }
+      ],
+      "views": ["grid"]
+    }
+  ]
+}

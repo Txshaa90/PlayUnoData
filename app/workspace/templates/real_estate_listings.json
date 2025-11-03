@@ -1,0 +1,36 @@
+{
+  "templateName": "Real Estate Listings",
+  "category": "inventory",
+  "description": "Catalog property listings with leads and showings.",
+  "tables": [
+    {
+      "name": "Listings",
+      "fields": [
+        { "name": "Address", "type": "text" },
+        { "name": "Type", "type": "select", "options": ["House", "Condo", "Apartment", "Land"] },
+        { "name": "Price", "type": "currency" },
+        { "name": "Status", "type": "select", "options": ["Available", "Under Contract", "Sold"] }
+      ],
+      "views": ["grid"]
+    },
+    {
+      "name": "Leads",
+      "fields": [
+        { "name": "Name", "type": "text" },
+        { "name": "Email", "type": "email" },
+        { "name": "Phone", "type": "text" },
+        { "name": "Interest", "type": "text" }
+      ],
+      "views": ["grid"]
+    },
+    {
+      "name": "Showings",
+      "fields": [
+        { "name": "Listing", "type": "text" },
+        { "name": "Date", "type": "date" },
+        { "name": "Agent", "type": "text" }
+      ],
+      "views": ["grid", "calendar"]
+    }
+  ]
+}

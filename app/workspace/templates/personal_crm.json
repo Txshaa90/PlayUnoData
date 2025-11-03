@@ -1,0 +1,28 @@
+{
+  "templateName": "Personal CRM",
+  "category": "sales-crm",
+  "description": "Maintain personal relationships with contacts and interactions.",
+  "tables": [
+    {
+      "name": "Contacts",
+      "fields": [
+        { "name": "Name", "type": "text" },
+        { "name": "Email", "type": "email" },
+        { "name": "Phone", "type": "text" },
+        { "name": "Company", "type": "text" },
+        { "name": "Last Contacted", "type": "date" }
+      ],
+      "views": ["grid"]
+    },
+    {
+      "name": "Interactions",
+      "fields": [
+        { "name": "Contact", "type": "text" },
+        { "name": "Type", "type": "select", "options": ["Call", "Email", "Meeting", "Note"] },
+        { "name": "Date", "type": "date" },
+        { "name": "Notes", "type": "longtext" }
+      ],
+      "views": ["grid", "calendar"]
+    }
+  ]
+}

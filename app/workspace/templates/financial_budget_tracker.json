@@ -1,0 +1,34 @@
+{
+  "templateName": "Financial Budget Tracker",
+  "category": "product-management",
+  "description": "Track budgets, expenses, and categories with monthly totals.",
+  "tables": [
+    {
+      "name": "Budgets",
+      "fields": [
+        { "name": "Category", "type": "text" },
+        { "name": "Month", "type": "select", "options": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"] },
+        { "name": "Amount", "type": "currency" }
+      ],
+      "views": ["grid"]
+    },
+    {
+      "name": "Expenses",
+      "fields": [
+        { "name": "Date", "type": "date" },
+        { "name": "Category", "type": "text" },
+        { "name": "Description", "type": "text" },
+        { "name": "Amount", "type": "currency" }
+      ],
+      "views": ["grid", "calendar"]
+    },
+    {
+      "name": "Categories",
+      "fields": [
+        { "name": "Category", "type": "text" },
+        { "name": "Notes", "type": "longtext" }
+      ],
+      "views": ["grid"]
+    }
+  ]
+}

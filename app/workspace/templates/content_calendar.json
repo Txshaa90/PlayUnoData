@@ -1,0 +1,27 @@
+{
+  "templateName": "Content Calendar",
+  "category": "content-planning",
+  "description": "Plan and schedule content across platforms with statuses and notes.",
+  "tables": [
+    {
+      "name": "Content",
+      "fields": [
+        { "name": "Title", "type": "text" },
+        { "name": "Platform", "type": "select", "options": ["Instagram", "Facebook", "Twitter", "LinkedIn", "TikTok", "YouTube"] },
+        { "name": "Status", "type": "select", "options": ["Draft", "Scheduled", "Published", "Archived"] },
+        { "name": "Publish Date", "type": "date" },
+        { "name": "URL", "type": "url" }
+      ],
+      "views": ["grid", "calendar"]
+    },
+    {
+      "name": "Assets",
+      "fields": [
+        { "name": "Asset Name", "type": "text" },
+        { "name": "Type", "type": "select", "options": ["Image", "Video", "Copy", "Link"] },
+        { "name": "Owner", "type": "text" }
+      ],
+      "views": ["grid"]
+    }
+  ]
+}

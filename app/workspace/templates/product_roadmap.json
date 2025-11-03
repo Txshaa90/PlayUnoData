@@ -1,0 +1,25 @@
+{
+  "templateName": "Product Roadmap",
+  "category": "product-management",
+  "description": "Plan features and releases with progress tracking.",
+  "tables": [
+    {
+      "name": "Features",
+      "fields": [
+        { "name": "Feature", "type": "text" },
+        { "name": "Category", "type": "select", "options": ["Core", "Enhancement", "Bug Fix", "Experiment"] },
+        { "name": "Release", "type": "select", "options": ["v1.0", "v1.1", "v2.0", "Future"] },
+        { "name": "Progress %", "type": "number" }
+      ],
+      "views": ["grid", "kanban"]
+    },
+    {
+      "name": "Releases",
+      "fields": [
+        { "name": "Version", "type": "text" },
+        { "name": "Release Date", "type": "date" }
+      ],
+      "views": ["grid", "calendar"]
+    }
+  ]
+}

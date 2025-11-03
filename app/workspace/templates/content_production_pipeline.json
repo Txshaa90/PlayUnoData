@@ -1,0 +1,27 @@
+{
+  "templateName": "Content Production Pipeline",
+  "category": "content-planning",
+  "description": "Manage content items through stages with production tasks.",
+  "tables": [
+    {
+      "name": "Content Items",
+      "fields": [
+        { "name": "Title", "type": "text" },
+        { "name": "Type", "type": "select", "options": ["Article", "Video", "Podcast", "Infographic"] },
+        { "name": "Stage", "type": "select", "options": ["Idea", "Writing", "Editing", "Review", "Published"] },
+        { "name": "Publish Date", "type": "date" }
+      ],
+      "views": ["grid", "kanban", "calendar"]
+    },
+    {
+      "name": "Production Tasks",
+      "fields": [
+        { "name": "Task", "type": "text" },
+        { "name": "Owner", "type": "text" },
+        { "name": "Due Date", "type": "date" },
+        { "name": "Status", "type": "select", "options": ["Not Started", "In Progress", "Done"] }
+      ],
+      "views": ["grid", "calendar"]
+    }
+  ]
+}

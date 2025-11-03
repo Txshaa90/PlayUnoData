@@ -1,0 +1,30 @@
+{
+  "templateName": "Marketing Campaign Tracker",
+  "category": "marketing",
+  "description": "Plan, execute, and measure campaigns across channels with budgets and ROI.",
+  "tables": [
+    {
+      "name": "Campaigns",
+      "fields": [
+        { "name": "Campaign Name", "type": "text" },
+        { "name": "Channel", "type": "select", "options": ["Instagram", "Facebook", "Google", "Email", "LinkedIn"] },
+        { "name": "Budget", "type": "currency" },
+        { "name": "Start Date", "type": "date" },
+        { "name": "End Date", "type": "date" },
+        { "name": "Status", "type": "select", "options": ["Planned", "In Progress", "Paused", "Completed"] }
+      ],
+      "views": ["grid", "calendar"]
+    },
+    {
+      "name": "Performance",
+      "fields": [
+        { "name": "Campaign", "type": "text" },
+        { "name": "Impressions", "type": "number" },
+        { "name": "Clicks", "type": "number" },
+        { "name": "Conversions", "type": "number" },
+        { "name": "ROI %", "type": "number" }
+      ],
+      "views": ["grid"]
+    }
+  ]
+}

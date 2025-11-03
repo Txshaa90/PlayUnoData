@@ -1,0 +1,53 @@
+{
+  "templateName": "Sales CRM",
+  "category": "sales-crm",
+  "description": "Manage leads, accounts, deals, and activities with pipeline stages and close dates.",
+  "tables": [
+    {
+      "name": "Leads",
+      "fields": [
+        { "name": "Lead Name", "type": "text" },
+        { "name": "Company", "type": "text" },
+        { "name": "Email", "type": "email" },
+        { "name": "Phone", "type": "text" },
+        { "name": "Status", "type": "select", "options": ["New", "Contacted", "Qualified", "Unqualified"] },
+        { "name": "Owner", "type": "text" }
+      ],
+      "views": ["grid"]
+    },
+    {
+      "name": "Accounts",
+      "fields": [
+        { "name": "Account Name", "type": "text" },
+        { "name": "Industry", "type": "select", "options": ["SaaS", "E-commerce", "Healthcare", "Finance", "Other"] },
+        { "name": "Website", "type": "url" },
+        { "name": "Employees", "type": "number" },
+        { "name": "Owner", "type": "text" }
+      ],
+      "views": ["grid"]
+    },
+    {
+      "name": "Deals",
+      "fields": [
+        { "name": "Deal Name", "type": "text" },
+        { "name": "Account", "type": "text" },
+        { "name": "Stage", "type": "select", "options": ["Prospecting", "Qualified", "Proposal", "Negotiation", "Won", "Lost"] },
+        { "name": "Amount", "type": "currency" },
+        { "name": "Close Date", "type": "date" },
+        { "name": "Owner", "type": "text" }
+      ],
+      "views": ["grid", "kanban", "calendar"]
+    },
+    {
+      "name": "Activities",
+      "fields": [
+        { "name": "Related To", "type": "select", "options": ["Lead", "Account", "Deal"] },
+        { "name": "Subject", "type": "text" },
+        { "name": "Type", "type": "select", "options": ["Call", "Email", "Meeting", "Note"] },
+        { "name": "Date", "type": "date" },
+        { "name": "Owner", "type": "text" }
+      ],
+      "views": ["grid", "calendar"]
+    }
+  ]
+}

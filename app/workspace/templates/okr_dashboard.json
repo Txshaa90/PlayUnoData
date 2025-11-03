@@ -1,0 +1,35 @@
+{
+  "templateName": "OKR Dashboard",
+  "category": "product-management",
+  "description": "Objectives and Key Results with initiatives and progress.",
+  "tables": [
+    {
+      "name": "Objectives",
+      "fields": [
+        { "name": "Objective", "type": "text" },
+        { "name": "Owner", "type": "text" },
+        { "name": "Quarter", "type": "select", "options": ["Q1", "Q2", "Q3", "Q4"] }
+      ],
+      "views": ["grid"]
+    },
+    {
+      "name": "Key Results",
+      "fields": [
+        { "name": "Objective", "type": "text" },
+        { "name": "KR", "type": "text" },
+        { "name": "Target", "type": "number" },
+        { "name": "Current", "type": "number" }
+      ],
+      "views": ["grid"]
+    },
+    {
+      "name": "Initiatives",
+      "fields": [
+        { "name": "Initiative", "type": "text" },
+        { "name": "Owner", "type": "text" },
+        { "name": "Status", "type": "select", "options": ["Not Started", "In Progress", "Done"] }
+      ],
+      "views": ["grid", "kanban"]
+    }
+  ]
+}

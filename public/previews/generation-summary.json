@@ -1,0 +1,50 @@
+{
+  "generatedAt": "2025-10-29T18:39:36.104Z",
+  "totalTemplates": 6,
+  "successCount": 4,
+  "errorCount": 2,
+  "templates": [
+    {
+      "name": "Project Management Hub",
+      "filename": "project-management-hub.png",
+      "description": "Project tracking with tasks and deadlines",
+      "fullImagePath": "/templates/project-management-hub.png",
+      "previewImagePath": "/previews/project-management-hub.png"
+    },
+    {
+      "name": "Content Calendar Pro",
+      "filename": "content-calendar-pro.png",
+      "description": "Content management with analytics dashboard",
+      "fullImagePath": "/templates/content-calendar-pro.png",
+      "previewImagePath": "/previews/content-calendar-pro.png"
+    },
+    {
+      "name": "Blank Template",
+      "filename": "blank-template.png",
+      "description": "Flexible template for CSV/Excel import",
+      "fullImagePath": "/templates/blank-template.png",
+      "previewImagePath": "/previews/blank-template.png"
+    },
+    {
+      "name": "Templates Gallery",
+      "filename": "templates-gallery.png",
+      "description": "Template gallery overview",
+      "fullImagePath": "/templates/templates-gallery.png",
+      "previewImagePath": "/previews/templates-gallery.png"
+    },
+    {
+      "name": "Dashboard Overview",
+      "filename": "dashboard-overview.png",
+      "description": "Main dashboard with workspaces",
+      "fullImagePath": "/templates/dashboard-overview.png",
+      "previewImagePath": "/previews/dashboard-overview.png"
+    },
+    {
+      "name": "Landing Page",
+      "filename": "landing-page.png",
+      "description": "Homepage with features showcase",
+      "fullImagePath": "/templates/landing-page.png",
+      "previewImagePath": "/previews/landing-page.png"
+    }
+  ]
+}

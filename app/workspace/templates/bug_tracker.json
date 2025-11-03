@@ -1,0 +1,27 @@
+{
+  "templateName": "Bug Tracker",
+  "category": "project-management",
+  "description": "Track software bugs with status, priority, owner, and sprints.",
+  "tables": [
+    {
+      "name": "Bugs",
+      "fields": [
+        { "name": "Title", "type": "text" },
+        { "name": "Status", "type": "select", "options": ["Open", "In Progress", "Needs Review", "Closed"] },
+        { "name": "Priority", "type": "select", "options": ["High", "Medium", "Low"] },
+        { "name": "Owner", "type": "text" },
+        { "name": "Due Date", "type": "date" }
+      ],
+      "views": ["grid", "kanban", "calendar"]
+    },
+    {
+      "name": "Sprints",
+      "fields": [
+        { "name": "Sprint Name", "type": "text" },
+        { "name": "Start Date", "type": "date" },
+        { "name": "End Date", "type": "date" }
+      ],
+      "views": ["grid", "calendar"]
+    }
+  ]
+}

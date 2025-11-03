@@ -1,0 +1,37 @@
+{
+  "templateName": "Fundraising CRM",
+  "category": "sales-crm",
+  "description": "Track donors, donations, and pledges with follow-ups.",
+  "tables": [
+    {
+      "name": "Donors",
+      "fields": [
+        { "name": "Donor Name", "type": "text" },
+        { "name": "Email", "type": "email" },
+        { "name": "Phone", "type": "text" },
+        { "name": "Preferred Channel", "type": "select", "options": ["Email", "Phone", "In Person"] }
+      ],
+      "views": ["grid"]
+    },
+    {
+      "name": "Donations",
+      "fields": [
+        { "name": "Donor", "type": "text" },
+        { "name": "Amount", "type": "currency" },
+        { "name": "Date", "type": "date" },
+        { "name": "Campaign", "type": "text" }
+      ],
+      "views": ["grid", "calendar"]
+    },
+    {
+      "name": "Pledges",
+      "fields": [
+        { "name": "Donor", "type": "text" },
+        { "name": "Pledge Amount", "type": "currency" },
+        { "name": "Due Date", "type": "date" },
+        { "name": "Status", "type": "select", "options": ["Active", "Fulfilled", "Cancelled"] }
+      ],
+      "views": ["grid", "calendar"]
+    }
+  ]
+}
