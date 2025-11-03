@@ -113,6 +113,20 @@ const mockWorkspaces = [
   }
 ]
 
+const mockFolders = [
+  { name: 'Returns', subfolders: 2, sheets: 5, color: 'from-blue-500 to-blue-600' },
+  { name: 'Finance', subfolders: 1, sheets: 3, color: 'from-emerald-500 to-emerald-600' },
+  { name: 'Operations', subfolders: 2, sheets: 4, color: 'from-purple-500 to-purple-600' },
+]
+const folderColors = [
+  'from-blue-500 to-blue-600',
+  'from-emerald-500 to-emerald-600',
+  'from-purple-500 to-purple-600',
+  'from-orange-500 to-orange-600',
+  'from-pink-500 to-pink-600',
+  'from-teal-500 to-teal-600',
+]
+
 export default function Dashboard() {
   const [activeTab, setActiveTab] = useState('workspaces')
   const [searchQuery, setSearchQuery] = useState('')
@@ -121,6 +135,8 @@ export default function Dashboard() {
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
   const { isSuperAdmin, isAdmin, hasPermission } = useUserRole()
+  const [folders, setFolders] = useState<typeof mockFolders>(mockFolders)
+  const [editingFolderName, setEditingFolderName] = useState<string | null>(null)
 
   const filteredWorkspaces = mockWorkspaces.filter(workspace =>
     workspace.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -156,6 +172,52 @@ export default function Dashboard() {
       document.removeEventListener('mousedown', handleClickOutside)
     }
   }, [])
+
+  useEffect(() => {
+    try {
+      const raw = typeof window !== 'undefined' ? localStorage.getItem('pud.folders') : null
+      if (raw) {
+        const parsed = JSON.parse(raw)
+        if (Array.isArray(parsed)) setFolders(parsed)
+      }
+    } catch {}
+  }, [])
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('pud.folders', JSON.stringify(folders))
+    } catch {}
+  }, [folders])
+
+  const addFolder = () => {
+    const base = 'New Folder'
+    const existing = new Set(folders.map(f => f.name.toLowerCase()))
+    let name = base
+    let n = 1
+    while (existing.has(name.toLowerCase())) {
+      name = `${base} ${n++}`
+    }
+    const color = folderColors[folders.length % folderColors.length]
+    const nf = { name, subfolders: 0, sheets: 0, color }
+    setFolders(prev => [...prev, nf])
+    setEditingFolderName(name)
+  }
+
+  const saveFolderName = (oldName: string, newName: string) => {
+    const trimmed = newName.trim()
+    if (!trimmed) {
+      setEditingFolderName(null)
+      return
+    }
+    setFolders(prev => prev.map(f => (f.name === oldName ? { ...f, name: trimmed } : f)))
+    setEditingFolderName(null)
+  }
+
+  const deleteFolder = (name: string) => {
+    if (window.confirm(`Delete folder "${name}"? This cannot be undone.`)) {
+      setFolders(prev => prev.filter(f => f.name !== name))
+    }
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -474,6 +536,111 @@ export default function Dashboard() {
                     <div className="flex items-center space-x-1">
                       <Clock className="h-4 w-4" />
                       <span>{workspace.lastModified}</span>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+
+        {/* Folders Section */}
+        <div className="mb-6">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-2xl font-bold text-gray-900">Your Folders</h2>
+            <div className="flex items-center gap-2">
+              <button
+                className="bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-lg shadow-sm transition-all duration-200 flex items-center space-x-2"
+                onClick={addFolder}
+                title="New Folder"
+                aria-label="New Folder"
+              >
+                <Plus className="h-4 w-4" />
+                <span className="font-medium">New Folder</span>
+              </button>
+              <button
+                className="bg-white border border-gray-200 px-3 py-2 rounded-lg shadow-sm hover:shadow-md transition-all duration-200 flex items-center space-x-2 text-gray-700 hover:text-gray-900"
+                onClick={() => (window.location.href = '/workspace/folders')}
+                title="Manage Folders"
+                aria-label="Manage Folders"
+              >
+                <Folder className="h-4 w-4" />
+                <span className="font-medium">Manage Folders</span>
+              </button>
+            </div>
+          </div>
+
+          <motion.div
+            className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            {folders.map((folder, index) => (
+              <motion.div
+                key={folder.name}
+                className="bg-white rounded-xl shadow-sm border border-gray-200 hover:shadow-lg transition-all duration-200 overflow-hidden group cursor-pointer"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ y: -4, scale: 1.02 }}
+                onClick={() => {
+                  if (editingFolderName === folder.name) return
+                  window.location.href = `/workspace/folders?folder=${encodeURIComponent(folder.name)}`
+                }}
+                title={`Open ${folder.name}`}
+                aria-label={`Open ${folder.name}`}
+              >
+                <div className={`h-2 bg-gradient-to-r ${folder.color}`} />
+                <div className="p-6">
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center">
+                        <Folder className="h-4 w-4 text-gray-600" />
+                      </div>
+                      <div>
+                        {editingFolderName === folder.name ? (
+                          <input
+                            className="font-semibold text-gray-900 border border-gray-300 rounded px-2 py-1 text-sm"
+                            defaultValue={folder.name}
+                            autoFocus
+                            aria-label="Folder name"
+                            onClick={(e) => e.stopPropagation()}
+                            onKeyDown={(e) => {
+                              if (e.key === 'Enter') {
+                                saveFolderName(folder.name, (e.target as HTMLInputElement).value)
+                              }
+                              if (e.key === 'Escape') setEditingFolderName(null)
+                            }}
+                            onBlur={(e) => saveFolderName(folder.name, e.currentTarget.value)}
+                          />
+                        ) : (
+                          <h3 className="font-semibold text-gray-900 group-hover:text-green-600 transition-colors">
+                            {folder.name}
+                          </h3>
+                        )}
+                        <p className="text-sm text-gray-500 mt-1">
+                          {folder.subfolders} subfolders • {folder.sheets} sheets
+                        </p>
+                      </div>
+                    </div>
+                    <div className="opacity-0 group-hover:opacity-100 transition-opacity">
+                      <button
+                        className="text-gray-500 hover:text-gray-700 text-sm px-2 py-1 rounded"
+                        onClick={(e) => { e.stopPropagation(); setEditingFolderName(folder.name) }}
+                        title="Rename Folder"
+                        aria-label="Rename Folder"
+                      >
+                        Rename
+                      </button>
+                      <button
+                        className="text-red-600 hover:text-red-700 text-sm px-2 py-1 rounded ml-1"
+                        onClick={(e) => { e.stopPropagation(); deleteFolder(folder.name) }}
+                        title={`Delete ${folder.name}`}
+                        aria-label={`Delete ${folder.name}`}
+                      >
+                        Delete
+                      </button>
                     </div>
                   </div>
                 </div>

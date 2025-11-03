@@ -1,19 +1,25 @@
 import type { TemplateSheetConfig } from '@/types/templateSheets'
 
-// Load a TemplateSheetConfig JSON by id from public/templates/json/<id>.json
+const templateCache = new Map<string, TemplateSheetConfig | null>()
+let indexCache: ExternalTemplateIndexItem[] | null = null
+
 export async function loadTemplateConfigById(id: string): Promise<TemplateSheetConfig | null> {
+  if (templateCache.has(id)) return templateCache.get(id) ?? null
   try {
     const res = await fetch(`/templates/json/${id}.json`, { cache: 'no-store' })
-    if (!res.ok) return null
-    const data = await res.json()
-    return data as TemplateSheetConfig
+    if (!res.ok) {
+      templateCache.set(id, null)
+      return null
+    }
+    const data = (await res.json()) as TemplateSheetConfig
+    templateCache.set(id, data)
+    return data
   } catch (e) {
-    console.error('Failed to load template config', id, e)
+    templateCache.set(id, null)
     return null
   }
 }
 
-// Optional: load an index to list external templates (used later for gallery wiring)
 export interface ExternalTemplateIndexItem {
   id: string
   name: string
@@ -23,12 +29,22 @@ export interface ExternalTemplateIndexItem {
 }
 
 export async function loadExternalTemplatesIndex(): Promise<ExternalTemplateIndexItem[]> {
+  if (indexCache) return indexCache
   try {
     const res = await fetch('/templates/index.json', { cache: 'no-store' })
     if (!res.ok) return []
     const data = await res.json()
-    return Array.isArray(data) ? data as ExternalTemplateIndexItem[] : []
+    indexCache = Array.isArray(data) ? (data as ExternalTemplateIndexItem[]) : []
+    return indexCache
   } catch (e) {
     return []
   }
+}
+
+export async function loadTemplate(id: string) {
+  return loadTemplateConfigById(id)
+}
+
+export async function getTemplateList() {
+  return loadExternalTemplatesIndex()
 }

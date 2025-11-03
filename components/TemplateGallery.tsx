@@ -207,6 +207,7 @@ export function TemplateGallery({ className }: TemplateGalleryProps) {
   const [isFullPreviewModalOpen, setIsFullPreviewModalOpen] = useState(false)
   const [currentPreviewIndex, setCurrentPreviewIndex] = useState(0)
   const [externalTemplates, setExternalTemplates] = useState<Template[]>([])
+  const [isExternalLoading, setIsExternalLoading] = useState<boolean>(true)
 
   // Adapt external index items to Template type used by gallery
   const adaptExternal = (item: ExternalTemplateIndexItem): Template => ({
@@ -229,13 +230,15 @@ export function TemplateGallery({ className }: TemplateGalleryProps) {
 
   useEffect(() => {
     let mounted = true
+    setIsExternalLoading(true)
     loadExternalTemplatesIndex()
       .then((items) => {
         if (!mounted) return
         const adapted = items.map(adaptExternal)
         setExternalTemplates(adapted)
+        setIsExternalLoading(false)
       })
-      .catch(() => {})
+      .catch(() => { setIsExternalLoading(false) })
     return () => { mounted = false }
   }, [])
 
@@ -317,6 +320,8 @@ export function TemplateGallery({ className }: TemplateGalleryProps) {
             value={selectedCategory}
             onChange={(e) => setSelectedCategory(e.target.value as TemplateCategory | 'all')}
             className="px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+            aria-label="Filter templates by category"
+            title="Filter templates by category"
           >
             <option value="all">All Categories</option>
             {categories.map(([key, category]) => (
@@ -417,6 +422,14 @@ export function TemplateGallery({ className }: TemplateGalleryProps) {
                 onPreview={() => handleFullPreview(template)}
               />
             ))}
+          </div>
+        ) : isExternalLoading ? (
+          <div className="text-center py-12">
+            <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Search className="h-8 w-8 text-gray-400" />
+            </div>
+            <h3 className="text-lg font-medium text-gray-900 mb-2">Loading templates...</h3>
+            <p className="text-gray-500">Fetching external templates</p>
           </div>
         ) : (
           <div className="text-center py-12">

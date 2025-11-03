@@ -42,7 +42,7 @@ const LandingPage = () => {
             <div className="hidden md:flex items-center space-x-8">
               <Link href="#features" className="text-gray-600 hover:text-gray-900 transition-colors">Features</Link>
               <Link href="#templates" className="text-gray-600 hover:text-gray-900 transition-colors">Templates</Link>
-              <Link href="#pricing" className="text-gray-600 hover:text-gray-900 transition-colors">Pricing</Link>
+              <Link href="/pricing" className="text-gray-600 hover:text-gray-900 transition-colors">Pricing</Link>
               <Link href="/auth/login" className="text-gray-600 hover:text-gray-900 transition-colors">Sign In</Link>
               <Link 
                 href="/auth/signup" 
@@ -498,7 +498,7 @@ const LandingPage = () => {
               <ul className="space-y-2 text-gray-400">
                 <li><Link href="#features" className="hover:text-white transition-colors">Features</Link></li>
                 <li><Link href="#templates" className="hover:text-white transition-colors">Templates</Link></li>
-                <li><Link href="#pricing" className="hover:text-white transition-colors">Pricing</Link></li>
+                <li><Link href="/pricing" className="hover:text-white transition-colors">Pricing</Link></li>
                 <li><Link href="/dashboard" className="hover:text-white transition-colors">Try Demo</Link></li>
               </ul>
             </div>
