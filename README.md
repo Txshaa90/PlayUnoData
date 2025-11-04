@@ -1,4 +1,4 @@
-# Airtable-Inspired Data Management App
+Data Management App
 
 A modern, clean data management interface inspired by Airtable's design principles, built with Next.js, TypeScript, and Tailwind CSS.
 
